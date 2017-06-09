@@ -1,0 +1,25 @@
+{% if question %}
+  <p>you are looking at the question {{ question.id }} detail</p>
+  <p>{{question.question_text}}</p>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% endif %}
+
+
+  <form action="{% url 'news:vote' question.id %}" method="post">
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+      <input type="radio" class="{% cycle 'input1' 'input2' %}" name="choice" id="choice{{ forloop.counter0 }}" value="{{ choice.id }}">
+      <label for="choice{{ forloop.counter0 }}">{{ choice.choice_text }}</label><br/>
+    {% endfor %}
+    <button type="submit">Vote</button>
+  </form>
+  <div>
+    <a href="{% url 'news:results' question.id %}">查看结果</a>
+  </div>
+  <div>
+    <a href="{% url 'news:vote' question.id %}">查看选项</a>
+  </div>
+{% else %}
+  <p>Sorry, the question you are looking for is not found !</p>
+{% endif %}

@@ -1,0 +1,13 @@
+{% if question %}
+  <p>you are looking at the question {{ question }} results</p>
+  <p>{{ question.question_text }}</p>
+  <ul>
+    {% for choice in question.choice_set.all %}
+      <li>{{ choice.choice_text }} -- {{ choice.votes }} vote {{ choice.votes|pluralize }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'news:detail' question.id %}">Vote again?</a>
+{% else %}
+  <p>Sorry, the question you are looking for is not found !</p>
+{% endif %}
