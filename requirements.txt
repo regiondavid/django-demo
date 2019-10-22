@@ -29,7 +29,7 @@ msgpack-python==0.4.8
 ndg-httpsclient==0.4.2
 newrelic==2.34.0.29
 paramiko==2.1.2
-Pillow==2.5.1
+Pillow==6.2.0
 py==1.4.34
 pyasn1==0.1.7
 pycparser==2.17
