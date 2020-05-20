@@ -18,7 +18,7 @@ Fabric==1.13.2
 flower==0.6.0
 giants==0.0.8
 hiredis==0.1.2
-httplib2==0.9
+httplib2==0.18.0
 idna==2.5
 ipaddress==1.0.18
 JsonSir==0.0.2
